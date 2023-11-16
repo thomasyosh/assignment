@@ -57,14 +57,17 @@ class Main{
                         break;
                 }
             }
-            Action front = (Action) queue.front();
-            if (front.minutes != 1){
-                front.edit(front.minutes - 1);
+            
+            if (!queue.isEmpty()){
+                Action front = (Action) queue.front();
+                if(front.minutes != 1)
+                    front.edit(front.minutes - 1);
+                else{
+                    queue.dequeue();
+                    numberOfMembersServed++;
             }
-            else{
-                queue.dequeue();
-                numberOfMembersServed++;
             }
+            
             
             System.out.println("After "+ (i+1) +" min(s):"+queue);
             System.out.println("------------------------------------------------------");
