@@ -1,21 +1,42 @@
 import java.util.*;
 
 class Main{
+    
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        RandomSeed random = null;
         Queue queue = new LinkedQueue();
+        
         System.out.print("Input simulation time (mins):");
         int minutes = scanner.nextInt();
         int actionQueued = 0;
         int numberOfMembersServed = 0;
+        boolean randomInput = false;
+        
+
+        if (minutes == 0 ){
+            randomInput = true;
+            minutes = 10;
+            System.out.print("Input seed number: ");
+            long seed = scanner.nextLong();
+            random = new RandomSeed(seed);
+            
+        }
 
         System.out.println("---------------- START OF SIMULATION -----------------");
 
         for (int i=0;i<minutes;i++){
             int action = -1;
+            
             while (action !=0){
                 System.out.print("Action [1-New Mem, 2-Gift, 3-Check Bal, 4-Trans Bal]");
-                action = scanner.nextInt();
+                if (randomInput){
+                    action = random.getSeed();
+                    System.out.println(action);
+                }
+
+                else
+                    action = scanner.nextInt();
 
                 switch (action){
                     case 1:
