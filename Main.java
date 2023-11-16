@@ -31,26 +31,36 @@ class Main{
             minutes = 10;
         //無無明 亦無無明盡
             System.out.print("Input seed number: ");
+        //乃至無老死 亦無老死盡
             long seed = scanner.nextLong();
+        //無苦集滅道（諦） 無智亦無得
             random = new RandomSeed(seed);
             
         }
 
+        //以無所得故 菩提薩埵
         System.out.println("---------------- START OF SIMULATION -----------------");
 
+        //依般若波羅蜜多故 心無罣礙
         for (int i=0;i<minutes;i++){
+        //故無有恐怖 遠離顛倒夢想 究竟涅槃 三世諸佛
             int action = -1;
-            
+        //依般若波羅蜜多故 得阿耨多羅三藐三菩提    
             while (action !=0){
+        //故知般若波羅是大神咒 是大明咒 是無上咒 是無等等咒
                 System.out.print("Action [1-New Mem, 2-Gift, 3-Check Bal, 4-Trans Bal]");
+        //能除一切苦 真實不虛
                 if (randomInput){
+        //故說般若波羅蜜多咒 即是說咒
                     action = random.getSeed();
+        //曰揭諦揭諦 波羅揭諦 波羅僧揭諦 菩提薩婆訶迴向偈
                     System.out.println(action);
                 }
 
                 else
+        //願消三障諸煩惱 願得智慧真明了
                     action = scanner.nextInt();
-
+        //普願災障悉消除 世世不離佛法僧
                 switch (action){
                     case 1:
                         queue.enqueue(new Action(4, "new member"));
